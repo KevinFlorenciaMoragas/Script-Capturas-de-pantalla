@@ -15,11 +15,10 @@ if (!fs.existsSync(screenshotPath)) {
 async function takeScreenshot() {
     try {
         const img = await screenshot({ screen: 'main' });
-        
         // Validar PNG
-        new PNG().parse(img); // Lanza error si no es válido
+        //new PNG().parse(img); // Lanza error si no es válido
         
-        const filename = `${Date.now()}_${screenshotCount}.png`;
+        const filename = `${screenshotCount}.png`;
         const filepath = path.join(screenshotPath, filename);
         
         fs.writeFileSync(filepath, img);
